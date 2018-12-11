@@ -23,11 +23,11 @@ import json
 from keras.preprocessing.image import ImageDataGenerator
 print(keras.backend.image_data_format())
 
-batch_size = 16
+batch_size = 32
 num_classes = 5
 
 # input image dimensions
-target_size = (256,256)
+target_size = (128,128)
 
 dataGenerator = ImageDataGenerator()
 
@@ -59,7 +59,7 @@ def generatorChecker(imageGenerator):
 
 #I'm making my own VGGNet now
 myVGGNet = Sequential()
-myVGGNet.add(ZeroPadding2D((1,1), input_shape=(256,256,3)))
+myVGGNet.add(ZeroPadding2D((1,1), input_shape=(128,128,3)))
 myVGGNet.add(Conv2D(64, kernel_size=(3, 3)))
 myVGGNet.add(BatchNormalization())
 myVGGNet.add(LeakyReLU())
@@ -147,8 +147,8 @@ myVGGNet.compile(loss=keras.losses.categorical_crossentropy,
               metrics=['accuracy'])
 
 epochs = 6
-training_steps = 9652
-validation_steps = 56
+training_steps = 4826
+validation_steps = 28
 
 history = myVGGNet.fit_generator(
         generatorChecker(training),

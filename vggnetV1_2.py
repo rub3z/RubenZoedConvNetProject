@@ -126,7 +126,7 @@ myVGGNet.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=SGD(lr=0.001, decay=0.000001, momentum=0.9),
               metrics=['accuracy'])
 
-epochs = 15
+epochs = 6
 training_steps = 4826
 validation_steps = 28
 
