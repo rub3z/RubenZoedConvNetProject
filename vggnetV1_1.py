@@ -103,6 +103,8 @@ myVGGNet.add(Dropout(0.5))
 
 myVGGNet.add(Dense(num_classes, activation='softmax'))
 
+myVGGNet.summary()
+
 from keras.optimizers import SGD
 myVGGNet.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=SGD(lr=0.001, decay=0.000001, momentum=0.9),
